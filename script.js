@@ -264,88 +264,99 @@ document.querySelector("#toPanel4").addEventListener("click", () => {
 
 
 
+// PANEL 4: THE CUTTING ANIMATION
 
-// PANEL 4: DRAMATIC EXPLOSION
+const cuttingDonut = document.querySelector("#cuttingDonut");
+const cutInstruction = document.querySelector("#cutInstruction");
+const jamSplash = document.querySelector("#jamSplash");
 
-let exploding = false;
+let cutStage = 0;
 
-document.querySelector("#explodeBtn")?.addEventListener("click", () => {
+cuttingDonut.addEventListener("click", () => {
 
-    if (exploding) return;
+    if (cutStage === 0) {
 
-    exploding = true;
+        // First push
+        cutStage = 1;
 
-    const overlay = document.querySelector("#explosionOverlay");
+        cuttingDonut.src = "assets/2ndcut.png";
 
-    const boom = gsap.timeline({
-        onComplete: () => {
-        thinkingDonut.src = "assets/donut3.png";
+        cutInstruction.textContent = "ONE MORE PUSH!";
 
-            exploding = false;
+        gsap.fromTo(cuttingDonut,
+            { scale: 1.05 },
+            { scale: 1, duration: 0.3 }
+        );
 
+    } else if (cutStage === 1) {
+
+        // Second push: THE EXPLOSION
+        cutStage = 2;
+
+        cuttingDonut.src = "assets/thirdcut.png";
+
+        cutInstruction.style.display = "none";
+        cuttingDonut.style.pointerEvents = "none";
+
+        const explosion = gsap.timeline();
+
+        // Donut shakes
+        explosion.to(cuttingDonut, {
+            x: 20,
+            rotation: 5,
+            duration: 0.05,
+            repeat: 9,
+            yoyo: true
+        });
+
+        // Donut zooms forward
+        explosion.to(cuttingDonut, {
+            scale: 1.4,
+            duration: 0.3
+        });
+
+        // Jam splash appears
+        explosion.set(jamSplash, {
+            visibility: "visible"
+        });
+
+        explosion.fromTo(jamSplash,
+            {
+                opacity: 0,
+                scale: 0.2
+            },
+            {
+                opacity: 1,
+                scale: 1.5,
+                duration: 0.5,
+                ease: "power3.out"
+            }
+        );
+
+        // Hold the splash
+        explosion.to({}, {
+            duration: 1
+        });
+
+        // Fade the screen to black
+        explosion.to("#panel4", {
+            backgroundColor: "#000000",
+            duration: 0.5
+        });
+
+        explosion.to(jamSplash, {
+            opacity: 0,
+            duration: 0.5
+        });
+
+        // Move to Panel 5
+        explosion.call(() => {
             document.querySelector("#panel5").scrollIntoView({
                 behavior: "smooth"
             });
+        });
 
-        }
-    });
-
-    // Show the overlay
-    boom.set(overlay, {
-        visibility: "visible",
-        pointerEvents: "auto"
-    });
-
-    // Dramatic pause
-    boom.to({}, {
-        duration: 0.6
-    });
-
-    // Screen flash
-    boom.to(overlay, {
-        opacity: 1,
-        duration: 0.08
-    });
-
-    // Explosion grows
-    boom.fromTo(".explosion-content",
-        {
-            scale: 0.1,
-            rotation: -20
-        },
-        {
-            scale: 1.4,
-            rotation: 8,
-            duration: 0.55,
-            ease: "back.out(2)"
-        }
-    );
-
-    // Shake the explosion
-    boom.to(".explosion-content", {
-        x: 35,
-        rotation: -8,
-        duration: 0.06,
-        repeat: 9,
-        yoyo: true
-    });
-
-    // Hold explosion
-    boom.to({}, {
-        duration: 0.8
-    });
-
-    // Fade away
-    boom.to(overlay, {
-        opacity: 0,
-        duration: 1
-    });
-
-    // Hide overlay
-    boom.set(overlay, {
-        visibility: "hidden",
-        pointerEvents: "none"
-    });
+    }
 
 });
 
