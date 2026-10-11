@@ -1010,14 +1010,21 @@ body {
     opacity: 0;
 }
 
-/* Keep both donuts in front of the jam */
-
+/* Put the initial jam splash in front of the donut */
 #panel5 #meltingDonutContainer #donut5 {
-    z-index: 1;
+    z-index: 3;
 }
 
+/* Keep the final jam behind the donut */
 #panel5 #meltingDonutContainer #donut5Melted {
-    z-index: 2;
+    z-index: 0;
+}
+
+/* Make the initial jam splash bigger */
+
+#panel5 #meltingDonutContainer #initialJam {
+    height: 68vh;
+    left: calc(50% + 30px);
 }
 
 /* Button */
@@ -1062,7 +1069,7 @@ body {
     z-index: 4;
 }
 
-/* Mobile Adjustments */
+/*  Adjustments */
 
 @media (max-width: 600px) {
     #panel5 #checkBtn {
@@ -1085,6 +1092,23 @@ body {
         font-size: 18px;
     }
 }
+
+
+/* Layer Order */
+
+#panel5 #meltingDonutContainer #finalJam5 {
+    z-index: 0;
+}
+
+#panel5 #meltingDonutContainer #donut5,
+#panel5 #meltingDonutContainer #donut5Melted {
+    z-index: 1;
+}
+
+#panel5 #meltingDonutContainer #initialJam {
+    z-index: 3;
+}
+
 
 /* PANEL 6: FINAL BEDROOM SCENE */
 
