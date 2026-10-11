@@ -41,6 +41,10 @@ if (mainDonut && donutThought) {
 
     mainDonut.addEventListener("click", () => {
 
+        // Change from the original donut to the different donut
+        mainDonut.querySelector("img").src = "assets/donut2.png";
+        mainDonut.querySelector("img").removeAttribute("id");
+
         // Show her thought bubble
         donutThought.style.display = "block";
 
