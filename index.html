@@ -47,7 +47,6 @@
 
 </section>
 
-</section>
 
        
 <!-- PANEL 2: THE DONUT'S THOUGHTS -->
@@ -106,25 +105,47 @@
 </section>
 
 
-        <!-- PANEL 3: THE CUTTER -->
-        <section class="panel" id="panel3">
-            <div class="panel-content">
-                <span class="chapter">03 / A TERRIBLE IDEA</span>
-                <h2>How Hard Can It Be?</h2>
+        
 
-                <img src="assets/panel3.png" alt="Donut cutter" id="cutter">
+<!-- PANEL 3: DONUT POV -->
+<section class="panel" id="panel3">
 
-                <p>She found the perfect solution. Or so she thought...</p>
+    <div class="pov-scene">
 
-                <button class="comic-button danger-button" id="cutterBtn">
-                    PICK UP THE CUTTER
-                </button>
+        <!-- First image: cutter UP -->
+        <img
+            src="assets/dough2.png"
+            id="doughImage"
+            alt="Cutter above the dough"
+        >
 
-                <p class="secret-message" id="message3">
-                    This doesn't seem very safe...
-                </p>
-            </div>
-        </section>
+        <!-- Invisible button covering the screen -->
+        <button
+            id="povClickArea"
+            aria-label="Press the cutter"
+        ></button>
+
+        <!-- Instructions -->
+        <p id="doughInstruction">
+            CLICK TO LOWER THE CUTTER
+        </p>
+
+        <!-- Message after cutting -->
+        <div id="doughSuccess">
+            See? That wasn't so hard!
+        </div>
+
+        <!-- Continue -->
+        <button class="comic-button" id="toPanel4">
+            NOW TRY IT FOR REAL →
+        </button>
+
+    </div>
+
+</section>
+
+
+
 
         <!-- PANEL 4: THE EXPLOSION -->
         <section class="panel" id="panel4">

@@ -202,21 +202,67 @@ document.querySelector("#nextPanelBtn")?.addEventListener("click", () => {
 });
 
 
-// PANEL 3: PICK UP THE CUTTER
+// PANEL 3: DONUT POV
 
-document.querySelector("#cutterBtn")?.addEventListener("click", () => {
+const doughImages = [
+    "assets/dough2.png",
+    "assets/dough1.png",
+    "assets/dough3.png"
+];
 
-    showMessage("#message3");
+let doughStage = 0;
 
-    gsap.to("#cutter", {
-        rotation: 20,
-        y: -30,
-        duration: 0.25,
-        yoyo: true,
-        repeat: 5
-    });
+const doughImage = document.querySelector("#doughImage");
+const doughInstruction = document.querySelector("#doughInstruction");
+const povClickArea = document.querySelector("#povClickArea");
 
+povClickArea.addEventListener("click", () => {
+
+    if (doughStage >= 2) return;
+
+    doughStage++;
+
+    // Change to the next image
+    doughImage.src = doughImages[doughStage];
+
+    // Small impact animation
+    gsap.fromTo(doughImage,
+        { scale: 1.03 },
+        { scale: 1, duration: 0.25 }
+    );
+
+    if (doughStage === 1) {
+        doughInstruction.textContent =
+            "CLICK AGAIN TO CUT!";
+    }
+
+    if (doughStage === 2) {
+
+        doughInstruction.style.display = "none";
+        povClickArea.style.display = "none";
+
+        const success = document.querySelector("#doughSuccess");
+        const nextButton = document.querySelector("#toPanel4");
+
+        success.style.display = "block";
+        nextButton.style.display = "block";
+
+        gsap.from(success, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5
+        });
+    }
 });
+
+// Continue to Panel 4
+document.querySelector("#toPanel4").addEventListener("click", () => {
+    document.querySelector("#panel4").scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+
 
 
 // PANEL 4: DRAMATIC EXPLOSION
