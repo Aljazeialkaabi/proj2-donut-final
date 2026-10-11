@@ -372,7 +372,7 @@ document.querySelector("#checkBtn")?.addEventListener("click", () => {
 
     meltingStarted = true;
 
-    // Fade from the half-melted donut to the fully melted donut
+    // Fade the half-melted donut into the fully melted donut
     gsap.to("#donut5", {
         opacity: 0,
         duration: 3,
@@ -380,6 +380,19 @@ document.querySelector("#checkBtn")?.addEventListener("click", () => {
     });
 
     gsap.to("#donut5Melted", {
+        opacity: 1,
+        duration: 3,
+        ease: "power1.inOut"
+    });
+
+    // Fade the initial jam into the final jam at the same speed
+    gsap.to("#initialJam", {
+        opacity: 0,
+        duration: 3,
+        ease: "power1.inOut"
+    });
+
+    gsap.to("#finalJam5", {
         opacity: 1,
         duration: 3,
         ease: "power1.inOut"
@@ -404,21 +417,6 @@ document.querySelector("#checkBtn")?.addEventListener("click", () => {
     );
 
 });
-
-// PANEL 6: JAM Movement 
-gsap.to("#finalJam", {
-    height: "70vh",
-    duration: 0.7,
-    yoyo: true,
-    repeat: 1,
-    ease: "power1.inOut",
-    scrollTrigger: {
-        trigger: "#panel6",
-        start: "top center",
-        toggleActions: "play none none none"
-    }
-});
-
 
 
 // PANEL 6: RESTART STORY
