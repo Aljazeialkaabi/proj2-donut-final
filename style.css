@@ -883,3 +883,248 @@ body {
     border-radius: 0 !important;
     padding: 0 !important;
 }
+
+/* PANEL 5: THE DONUT'S AFTERMATH */
+
+#panel5 {
+    min-height: 100vh;
+    height: 100vh;
+    padding: 0;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 241, 230, 0.25),
+            rgba(255, 241, 230, 0.25)
+        ),
+        url("assets/bedroom.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #672b45;
+}
+
+/* Content */
+
+#panel5 .panel-content {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+}
+
+/* Melting Donut Animation */
+
+#meltingDonutContainer {
+    position: absolute;
+    top: 59%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    height: 38vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#meltingDonutContainer img {
+    position: absolute;
+
+    width: 90%;
+    height: 42vh;
+    max-width: 90%;
+    max-height: 42vh;
+
+    object-fit: contain;
+
+    border: none;
+    border-radius: 0;
+    background: transparent;
+
+    margin: 0;
+}
+
+#meltingDonutContainer #donut5 {
+    opacity: 1;
+    z-index: 1;
+}
+
+#meltingDonutContainer #donut5Melted {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Keep the melted donut the same size as Panel 6 */
+
+#panel5 #meltingDonutContainer #donut5Melted {
+    width: 75%;
+    height: 32vh;
+    max-width: 75%;
+    max-height: 32vh;
+}
+
+/* Button */
+
+#panel5 #checkBtn {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+
+    margin: 0;
+}
+
+/* Message Bubble */
+
+#panel5 #message5 {
+    display: none;
+
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: max-content;
+    max-width: 80%;
+    box-sizing: border-box;
+
+    background: rgba(255, 245, 250, 0.78);
+    border: 2px solid rgba(103, 43, 69, 0.55);
+    border-radius: 25px;
+
+    padding: 15px 22px;
+
+    color: #672b45;
+    font-size: clamp(18px, 2.2vw, 24px);
+    line-height: 1.4;
+    font-weight: bold;
+    text-align: center;
+
+    margin: 0;
+    z-index: 4;
+}
+
+/* Mobile Adjustments */
+
+@media (max-width: 600px) {
+    #panel5 #checkBtn {
+        top: 15px;
+        left: 15px;
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    #meltingDonutContainer img {
+        width: 90%;
+        max-width: 90%;
+        height: 30vh;
+        max-height: 30vh;
+    }
+
+    #panel5 #message5 {
+        max-width: 88%;
+        padding: 12px 16px;
+        font-size: 18px;
+    }
+}
+
+/* PANEL 6: FINAL BEDROOM SCENE */
+
+#panel6 {
+    background-image:
+        linear-gradient(
+            rgba(255, 241, 230, 0.55),
+            rgba(255, 241, 230, 0.55)
+        ),
+        url("assets/bedroom.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #672b45;
+}
+
+
+/* FINAL DONUT IMAGE */
+
+#panel6 img {
+    max-width: 75%;
+    max-height: 38vh;
+    object-fit: contain;
+
+    border: none;
+    border-radius: 0;
+    background: transparent;
+
+    margin-top: 200px;
+}
+
+/*  Jam behind the donut */
+#finalDonutContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px;
+}
+
+#finalDonutContainer #finalJam {
+    position: absolute;
+    transform: translateX(-30px);
+    width: auto;
+    height: 50vh;
+    max-height: none;
+    object-fit: contain;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    z-index: 1;
+}
+
+#finalDonutContainer #finalDonut {
+    position: relative;
+    width: 75%;
+    max-height: 32vh;
+    object-fit: contain;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    z-index: 2;
+}
+
+/* Ending Text - Top of the Screen */
+
+#panel6 #endingText {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    width: max-content;
+    max-width: 80%;
+    box-sizing: border-box;
+
+    background: #ffe0eb;
+    border: 4px solid #d85b87;
+    border-radius: 30px;
+    padding: 15px 30px;
+
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    z-index: 2;
+}
+
+/* RESTART BUTTON */
+
+#panel6 #restartBtn {
+    margin-top: 70px;
+}
