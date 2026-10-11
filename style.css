@@ -1,51 +1,24 @@
 
-/* General website styling */
+/* GENERAL WEBSITE STYLING */
+
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
 }
 
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8e6d5;
+    background-color: #fff1e6;
 }
 
-/* Title Screen */
+
+/* TITLE SCREEN */
+
 .intro {
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
-    background-color: #f6c9d5;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-    padding: 20px;
-
-    scroll-snap-align: start;
-}
-
-.intro h1 {
-    font-size: 60px;
-    margin-bottom: 15px;
-}
-
-.intro p {
-    font-size: 20px;
-}
-
-.scroll-text {
-    margin-top: 60px;
-}
-
-/* Panel 1 */
-.panel {
-    height: 100vh;
-    box-sizing: border-box;
-    background-color: #f8e6d5;
+    background-color: #f9cbd8;
 
     display: flex;
     flex-direction: column;
@@ -55,36 +28,278 @@ body {
     text-align: center;
     padding: 30px;
 
-    border-top: 5px solid black;
     scroll-snap-align: start;
 }
 
-/* Panel Title */
-.panel h2 {
-    font-size: 40px;
-    margin-bottom: 30px;
+.small-title {
+    font-size: 14px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: #672b45;
 }
 
-/* Panel Image */
+.intro h1 {
+    font-size: clamp(45px, 7vw, 95px);
+    line-height: 1.1;
+    margin: 20px 0;
+    color: #672b45;
+}
+
+.intro p {
+    font-size: 20px;
+}
+
+
+/* ALL COMIC PANELS */
+
+.panel {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 45px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    border-top: 5px solid black;
+    scroll-snap-align: start;
+
+    position: relative;
+}
+
+
+/* CONTENT INSIDE EACH PANEL */
+
+.panel-content {
+    width: 100%;
+    max-width: 1000px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* CHAPTER LABELS */
+
+.chapter {
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+/* PANEL TITLES */
+
+.panel h2 {
+    font-size: clamp(30px, 4vw, 55px);
+    margin: 0 0 25px;
+}
+
+
+/* PANEL IMAGES */
+
 .panel img {
-    max-width: 80%;
-    max-height: 45vh;
+    display: block;
     width: auto;
     height: auto;
+
+    max-width: 90%;
+    max-height: 42vh;
+
     object-fit: contain;
+
+    border: 5px solid black;
+    border-radius: 15px;
+
+    background-color: white;
 }
 
-/* Panel Description */
+
+/* PANEL DESCRIPTIONS */
+
 .panel p {
-    font-size: 22px;
-    margin-top: 30px;
-    max-width: 600px;
+    font-size: clamp(18px, 2vw, 25px);
+    line-height: 1.5;
+    max-width: 650px;
+
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    font-weight: bold;
 }
 
-/* Smaller screens */
+
+/* INTERACTIVE COMIC BUTTONS */
+
+.comic-button {
+    background-color: #ff7da8;
+    color: #23151b;
+
+    border: 3px solid black;
+    border-radius: 15px;
+
+    padding: 15px 30px;
+    margin-top: 20px;
+
+    font-size: 18px;
+    font-weight: bold;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 0px black;
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+/* BUTTON HOVER EFFECT */
+
+.comic-button:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0px black;
+}
+
+
+/* BUTTON CLICK EFFECT */
+
+.comic-button:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0px 0px 0px black;
+}
+
+
+/* DANGEROUS BUTTONS */
+
+.danger-button {
+    background-color: #ff5c72;
+}
+
+.danger-button:hover {
+    background-color: #ff304f;
+}
+
+
+/* HIDDEN MESSAGES */
+
+.secret-message {
+    display: none;
+    color: #8b2447;
+    font-style: italic;
+}
+
+
+/* INDIVIDUAL PANEL BACKGROUNDS */
+
+#panel1 {
+    background-color: #fff1dc;
+}
+
+#panel2 {
+    background-color: #f9dbe5;
+}
+
+#panel3 {
+    background-color: #ffe4b5;
+}
+
+#panel4 {
+    background-color: #ff9ba5;
+}
+
+#panel5 {
+    background-color: #c9b6d8;
+}
+
+#panel6 {
+    background-color: #65516b;
+    color: white;
+}
+
+#panel6 .comic-button {
+    background-color: #f9cbd8;
+}
+
+
+/* FULL-SCREEN EXPLOSION */
+
+#explosionOverlay {
+    position: fixed;
+    inset: 0;
+
+    background-color: #ff376c;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+/* EXPLOSION CONTENT */
+
+.explosion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.explosion-content h2 {
+    font-size: clamp(60px, 12vw, 180px);
+    color: white;
+
+    -webkit-text-stroke: 3px black;
+
+    margin: 0;
+    font-weight: 900;
+    transform: rotate(-5deg);
+}
+
+.explosion-content img {
+    width: auto;
+    height: auto;
+
+    max-width: 90vw;
+    max-height: 65vh;
+
+    object-fit: contain;
+    border: none;
+    background: transparent;
+}
+
+
+/* SMALLER SCREENS */
+
 @media (max-width: 600px) {
+
     .intro h1 {
-        font-size: 36px;
+        font-size: 40px;
+    }
+
+    .intro p {
+        font-size: 17px;
+    }
+
+    .panel {
+        padding: 30px 15px;
     }
 
     .panel h2 {
@@ -93,5 +308,24 @@ body {
 
     .panel p {
         font-size: 18px;
+    }
+
+    .panel img {
+        max-width: 95%;
+        max-height: 40vh;
+    }
+
+    .comic-button {
+        font-size: 15px;
+        padding: 12px 20px;
+    }
+
+    .explosion-content h2 {
+        font-size: 55px;
+        -webkit-text-stroke: 2px black;
+    }
+
+    .explosion-content img {
+        max-width: 95vw;
     }
 }

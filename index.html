@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,23 +11,145 @@
 
 <body>
 
-    <!-- Title Screen -->
+    <!-- TITLE SCREEN -->
     <section class="intro">
-        <h1>The Donut That Lost Its Hole</h1>
+        <p class="small-title">A VERY UNFORTUNATE STORY</p>
+        <h1>The Donut That<br>Lost Its Hole</h1>
         <p>A sweet story with a not-so-sweet ending.</p>
-        <p class="scroll-text">Scroll to begin ↓</p>
+
+        <button class="comic-button" id="startBtn">
+            START STORY 🍩
+        </button>
     </section>
 
     <main>
 
-        <!-- Panel 1 -->
+        <!-- PANEL 1: THE CLASSROOM -->
         <section class="panel" id="panel1">
-            <h2>Confectionery School</h2>
-            <img src="assets/panel1.png" alt="Donut classroom">
-            <p>In a school full of donuts, one was a little different...</p>
+            <div class="panel-content">
+                <span class="chapter">01 / THE BEGINNING</span>
+                <h2>Confectionery School</h2>
+
+                <img src="assets/panel1.png" alt="Donut classroom">
+
+                <p>In a school full of donuts, one was a little different...</p>
+
+                <button class="comic-button" id="findBtn">
+                    FIND HER 🔎
+                </button>
+
+                <p class="secret-message" id="message1">
+                    There she is! The only donut without a hole.
+                </p>
+            </div>
+        </section>
+
+        <!-- PANEL 2: FEELING DIFFERENT -->
+        <section class="panel" id="panel2">
+            <div class="panel-content">
+                <span class="chapter">02 / THE PROBLEM</span>
+                <h2>Something's Missing...</h2>
+
+                <img src="assets/panel2.png" alt="Pink donut" id="happyDonut">
+
+                <p>She just wanted to fit in.</p>
+
+                <button class="comic-button" id="cheerBtn">
+                    CHEER HER UP 💗
+                </button>
+
+                <p class="secret-message" id="message2">
+                    "Maybe I can be like everyone else!"
+                </p>
+            </div>
+        </section>
+
+        <!-- PANEL 3: THE CUTTER -->
+        <section class="panel" id="panel3">
+            <div class="panel-content">
+                <span class="chapter">03 / A TERRIBLE IDEA</span>
+                <h2>How Hard Can It Be?</h2>
+
+                <img src="assets/panel3.png" alt="Donut cutter" id="cutter">
+
+                <p>She found the perfect solution. Or so she thought...</p>
+
+                <button class="comic-button danger-button" id="cutterBtn">
+                    PICK UP THE CUTTER
+                </button>
+
+                <p class="secret-message" id="message3">
+                    This doesn't seem very safe...
+                </p>
+            </div>
+        </section>
+
+        <!-- PANEL 4: THE EXPLOSION -->
+        <section class="panel" id="panel4">
+            <div class="panel-content">
+                <span class="chapter">04 / THE MISTAKE</span>
+                <h2>One Little Cut...</h2>
+
+                <img src="assets/panel4.png" alt="Jam explosion">
+
+                <p>There's no going back now.</p>
+
+                <button class="comic-button danger-button" id="explodeBtn">
+                    MAKE THE HOLE! 💥
+                </button>
+            </div>
+        </section>
+
+        <!-- PANEL 5: THE AFTERMATH -->
+        <section class="panel" id="panel5">
+            <div class="panel-content">
+                <span class="chapter">05 / THE AFTERMATH</span>
+                <h2>Oh...</h2>
+
+                <img src="assets/panel5.png" alt="Sad donut" id="sadDonut">
+
+                <p>Maybe this wasn't such a good idea.</p>
+
+                <button class="comic-button" id="checkBtn">
+                    ARE YOU OKAY?
+                </button>
+
+                <p class="secret-message" id="message5">
+                    ...
+                </p>
+            </div>
+        </section>
+
+        <!-- PANEL 6: THE ENDING -->
+        <section class="panel" id="panel6">
+            <div class="panel-content">
+                <span class="chapter">06 / THE END</span>
+                <h2>THE END.</h2>
+
+                <img src="assets/panel6.png" alt="Donut's final moment">
+
+                <p>She finally got her hole... but at what cost?</p>
+
+                <button class="comic-button" id="restartBtn">
+                    TRY AGAIN? ↻
+                </button>
+            </div>
         </section>
 
     </main>
+
+    <!-- FULL-SCREEN EXPLOSION -->
+    <div id="explosionOverlay">
+        <div class="explosion-content">
+            <h2>BOOOOOOM!</h2>
+            <img src="assets/panel4.png" alt="Exploding jam">
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LIBRARIES -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
