@@ -205,9 +205,9 @@ document.querySelector("#nextPanelBtn")?.addEventListener("click", () => {
 // PANEL 3: DONUT POV
 
 const doughImages = [
-    "assets/dough2.png",
-    "assets/dough1.png",
-    "assets/dough3.png"
+    "assets/dough2.PNG",
+    "assets/dough1.PNG",
+    "assets/dough3.PNG"
 ];
 
 let doughStage = 0;
