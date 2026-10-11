@@ -1,5 +1,6 @@
 
-// Register GSAP ScrollTrigger
+// REGISTER GSAP SCROLLTRIGGER
+
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -7,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 function showMessage(id) {
     const message = document.querySelector(id);
+
+    if (!message) return;
 
     message.style.display = "block";
 
@@ -20,10 +23,12 @@ function showMessage(id) {
 
 // START STORY BUTTON
 
-document.querySelector("#startBtn").addEventListener("click", () => {
+document.querySelector("#startBtn")?.addEventListener("click", () => {
+
     document.querySelector("#panel1").scrollIntoView({
         behavior: "smooth"
     });
+
 });
 
 
@@ -32,69 +37,166 @@ document.querySelector("#startBtn").addEventListener("click", () => {
 const mainDonut = document.querySelector("#mainDonut");
 const donutThought = document.querySelector("#donutThought");
 
-// When the donut is clicked
-mainDonut.addEventListener("click", () => {
+if (mainDonut && donutThought) {
 
-    // Show the thought bubble
-    donutThought.style.display = "block";
+    mainDonut.addEventListener("click", () => {
 
-    // Animate the thought bubble
-    gsap.fromTo(donutThought,
-        {
-            opacity: 0,
-            scale: 0.5
-        },
-        {
-            opacity: 1,
-            scale: 1,
-            duration: 0.5,
-            ease: "back.out(1.7)"
+        // Show her thought bubble
+        donutThought.style.display = "block";
+
+        gsap.fromTo(donutThought,
+            {
+                opacity: 0,
+                scale: 0.5
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                ease: "back.out(1.7)"
+            }
+        );
+
+        // Make her shake a little
+        gsap.fromTo(mainDonut,
+            {
+                rotation: -5
+            },
+            {
+                rotation: 5,
+                duration: 0.2,
+                repeat: 3,
+                yoyo: true
+            }
+        );
+
+    });
+
+}
+
+
+// PANEL 2: THE DONUT'S THOUGHTS
+
+const thinkingDonut = document.querySelector("#thinkingDonut");
+const thoughts = document.querySelectorAll(".thought");
+
+let thoughtsClicked = 0;
+
+thoughts.forEach(thought => {
+
+    thought.addEventListener("click", () => {
+
+        // Don't count the same thought twice
+        if (thought.classList.contains("clicked")) return;
+
+        thought.classList.add("clicked");
+
+        thoughtsClicked++;
+
+        // Make the thought bubble pop
+        gsap.fromTo(thought,
+            {
+                scale: 1
+            },
+            {
+                scale: 1.15,
+                duration: 0.2,
+                repeat: 1,
+                yoyo: true
+            }
+        );
+
+        // Make the donut react
+        if (thinkingDonut) {
+
+            gsap.fromTo(thinkingDonut,
+                {
+                    rotation: -4
+                },
+                {
+                    rotation: 4,
+                    duration: 0.2,
+                    repeat: 3,
+                    yoyo: true
+                }
+            );
+
         }
-    );
 
-    // Make the donut react
-    gsap.to(mainDonut, {
-        rotation: 10,
-        duration: 0.2,
-        repeat: 3,
-        yoyo: true
+        // After all three thoughts have been clicked
+        if (thoughtsClicked === 3) {
+
+            // Darken the classroom
+            document.querySelector("#panel2")
+                .classList.add("decision-made");
+
+            // Change from worried to confident
+            
+            if (thinkingDonut) {
+
+                // Change to the confident donut immediately
+                thinkingDonut.src = "assets/donut3.png";
+
+                // Animate the new donut
+                gsap.fromTo(thinkingDonut,
+                    {
+                        opacity: 0,
+                        scale: 0.8,
+                        rotation: -5
+                    },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        rotation: 0,
+                        duration: 0.7,
+                        ease: "back.out(1.7)"
+                    }
+                );
+
+                // Make the cutter appear
+                gsap.to("#handCutter", {
+                    opacity: 1,
+                    duration: 0.7
+                });
+
+            }
+
+            // Show the final decision
+            const finalThought =
+                document.querySelector("#finalThought");
+
+            const nextButton =
+                document.querySelector("#nextPanelBtn");
+
+            if (finalThought) {
+
+                finalThought.style.display = "block";
+
+                gsap.from(finalThought, {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.7
+                });
+
+            }
+
+            if (nextButton) {
+                nextButton.style.display = "block";
+            }
+
+        }
+
     });
 
 });
 
-// PANEL 1: SCROLL ANIMATION
 
-gsap.fromTo(".classroom-title",
-    {
-        opacity: 0,
-        y: -50
-    },
-    {
-        opacity: 1,
-        y: 0,
-        duration: 1,
+// CONTINUE FROM PANEL 2 TO PANEL 3
 
-        scrollTrigger: {
-            trigger: "#panel1",
-            start: "top 70%",
-            toggleActions: "play none none reverse"
-        }
-    }
-);
+document.querySelector("#nextPanelBtn")?.addEventListener("click", () => {
 
-// PANEL 2: CHEER HER UP
-
-document.querySelector("#cheerBtn").addEventListener("click", () => {
-
-    showMessage("#message2");
-
-    gsap.to("#happyDonut", {
-        y: -35,
-        rotation: 10,
-        duration: 0.35,
-        yoyo: true,
-        repeat: 3,
-        ease: "power2.out"
+    document.querySelector("#panel3").scrollIntoView({
+        behavior: "smooth"
     });
 
 });
@@ -102,7 +204,7 @@ document.querySelector("#cheerBtn").addEventListener("click", () => {
 
 // PANEL 3: PICK UP THE CUTTER
 
-document.querySelector("#cutterBtn").addEventListener("click", () => {
+document.querySelector("#cutterBtn")?.addEventListener("click", () => {
 
     showMessage("#message3");
 
@@ -121,7 +223,7 @@ document.querySelector("#cutterBtn").addEventListener("click", () => {
 
 let exploding = false;
 
-document.querySelector("#explodeBtn").addEventListener("click", () => {
+document.querySelector("#explodeBtn")?.addEventListener("click", () => {
 
     if (exploding) return;
 
@@ -131,11 +233,14 @@ document.querySelector("#explodeBtn").addEventListener("click", () => {
 
     const boom = gsap.timeline({
         onComplete: () => {
+        thinkingDonut.src = "assets/donut3.png";
+
             exploding = false;
 
             document.querySelector("#panel5").scrollIntoView({
                 behavior: "smooth"
             });
+
         }
     });
 
@@ -201,7 +306,7 @@ document.querySelector("#explodeBtn").addEventListener("click", () => {
 
 // PANEL 5: CHECK ON HER
 
-document.querySelector("#checkBtn").addEventListener("click", () => {
+document.querySelector("#checkBtn")?.addEventListener("click", () => {
 
     showMessage("#message5");
 
@@ -215,9 +320,10 @@ document.querySelector("#checkBtn").addEventListener("click", () => {
 });
 
 
+
 // PANEL 6: RESTART STORY
 
-document.querySelector("#restartBtn").addEventListener("click", () => {
+document.querySelector("#restartBtn")?.addEventListener("click", () => {
 
     window.scrollTo({
         top: 0,
