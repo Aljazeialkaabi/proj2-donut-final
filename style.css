@@ -387,6 +387,11 @@ body {
     max-height: none;
 }
 
+/* Adjust initial donut size */
+#mainDonut img#donut1Image {
+    transform: scale(1.1);
+}
+
 /* Thought bubble */
 
 #donutThought {
