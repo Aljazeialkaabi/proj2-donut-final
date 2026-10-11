@@ -27,24 +27,60 @@ document.querySelector("#startBtn").addEventListener("click", () => {
 });
 
 
-// PANEL 1: FIND HER
+// PANEL 1: FIND THE DONUT
 
-document.querySelector("#findBtn").addEventListener("click", () => {
+const mainDonut = document.querySelector("#mainDonut");
+const donutThought = document.querySelector("#donutThought");
 
-    showMessage("#message1");
+// When the donut is clicked
+mainDonut.addEventListener("click", () => {
 
-    gsap.fromTo("#panel1 img",
-        { scale: 1 },
+    // Show the thought bubble
+    donutThought.style.display = "block";
+
+    // Animate the thought bubble
+    gsap.fromTo(donutThought,
         {
-            scale: 1.08,
-            duration: 0.3,
-            yoyo: true,
-            repeat: 1
+            opacity: 0,
+            scale: 0.5
+        },
+        {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: "back.out(1.7)"
         }
     );
 
+    // Make the donut react
+    gsap.to(mainDonut, {
+        rotation: 10,
+        duration: 0.2,
+        repeat: 3,
+        yoyo: true
+    });
+
 });
 
+// PANEL 1: SCROLL ANIMATION
+
+gsap.fromTo(".classroom-title",
+    {
+        opacity: 0,
+        y: -50
+    },
+    {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+
+        scrollTrigger: {
+            trigger: "#panel1",
+            start: "top 70%",
+            toggleActions: "play none none reverse"
+        }
+    }
+);
 
 // PANEL 2: CHEER HER UP
 
