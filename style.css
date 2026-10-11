@@ -38,7 +38,11 @@ body {
 }
 
 .intro h1 {
-    font-size: clamp(45px, 7vw, 95px);
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 300;
+    font-style: normal;
+
+    font-size: clamp(60px, 7vw, 120px);
     line-height: 1.1;
     margin: 20px 0;
     color: #672b45;
