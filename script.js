@@ -131,7 +131,7 @@ thoughts.forEach(thought => {
                 .classList.add("decision-made");
 
             // Change from worried to confident
-            
+
             if (thinkingDonut) {
 
                 // Change to the confident donut immediately
@@ -361,19 +361,62 @@ cuttingDonut.addEventListener("click", () => {
 });
 
 
-// PANEL 5: CHECK ON HER
+// PANEL 5: THE DONUT MELTING
+
+let meltingStarted = false;
 
 document.querySelector("#checkBtn")?.addEventListener("click", () => {
 
-    showMessage("#message5");
+    // Play the melting animation only once
+    if (meltingStarted) return;
 
-    gsap.to("#sadDonut", {
-        rotation: 4,
-        duration: 0.15,
-        repeat: 5,
-        yoyo: true
+    meltingStarted = true;
+
+    // Fade from the half-melted donut to the fully melted donut
+    gsap.to("#donut5", {
+        opacity: 0,
+        duration: 3,
+        ease: "power1.inOut"
     });
 
+    gsap.to("#donut5Melted", {
+        opacity: 1,
+        duration: 3,
+        ease: "power1.inOut"
+    });
+
+    // Reveal the comic-style message
+    const message = document.querySelector("#message5");
+    message.style.display = "block";
+
+    gsap.fromTo(message,
+        {
+            opacity: 0,
+            y: 20
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.5,
+            ease: "power1.out"
+        }
+    );
+
+});
+
+// PANEL 6: JAM Movement 
+gsap.to("#finalJam", {
+    height: "70vh",
+    duration: 0.7,
+    yoyo: true,
+    repeat: 1,
+    ease: "power1.inOut",
+    scrollTrigger: {
+        trigger: "#panel6",
+        start: "top center",
+        toggleActions: "play none none none"
+    }
 });
 
 
