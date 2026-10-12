@@ -2,210 +2,211 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitting The Mold - The Story</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitting The Mold - The Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- TITLE SCREEN -->
-<!-- TITLE SCREEN -->
-    <section class="intro">
-        <h1>Fitting The<br>Mold</h1>
+    <!-- TITLE SCREEN -->
+    <section class="intro">
+        <p class="small-title">A VERY UNFORTUNATE STORY</p>
+        <h1>Fitting The<br>Mold</h1>
+        <p>A sweet story with a not-so-sweet ending.</p>
 
-        <button class="comic-button" id="startBtn">
-            START STORY
-        </button>
-    </section>
-    
-    <main>
+        <button class="comic-button" id="startBtn">
+            START STORY 🍩
+        </button>
+    </section>
 
-        <!-- PANEL 1: THE CLASSROOM -->
-        <section class="panel" id="panel1">
+    <main>
 
-            <div class="classroom-scene">
+        <!-- PANEL 1: THE CLASSROOM -->
+        <section class="panel" id="panel1">
 
-                <button id="mainDonut" aria-label="Find the different donut">
-                    <img src="assets/donut1.png" alt="Jelly donut" id="donut1Image">
-                </button>
+            <div class="classroom-scene">
 
-                <!-- Hidden thought bubble -->
-                <div id="donutThought">
-                    Why am I the only one without a hole?
-                </div>
+                <button id="mainDonut" aria-label="Find the different donut">
+                    <img src="assets/donut1.png" alt="Jelly donut" id="donut1Image">
+                </button>
 
-                <!-- Instruction -->
-                <p class="find-instruction">
-                    Something is different about this class... Can you spot it?
-                </p>
+                <!-- Hidden thought bubble -->
+                <div id="donutThought">
+                    Why am I the only one without a hole?
+                </div>
 
-            </div>
+                <!-- Instruction -->
+                <p class="find-instruction">
+                    Something is different about this class... Can you spot it?
+                </p>
 
-        </section>
+            </div>
 
-
-
-        <!-- PANEL 2: THE DONUT'S THOUGHTS -->
-        <section class="panel" id="panel2">
-
-            <div class="thinking-scene">
-
-
-                <!-- Worried donut -->
-                <div class="donut-container">
-
-                    <img src="assets/donut2.png" id="thinkingDonut" alt="Worried jelly donut">
-
-                    <img src="assets/panel3.png" id="handCutter" alt="Hole cutter">
-
-                </div>
-
-                <!-- Instructions -->
-                <p id="thinkingInstruction">
-                    Click on her thoughts...
-                </p>
-
-                <!-- Interactive thought bubbles -->
-                <button class="thought" id="thought1">
-                    Everyone else has a hole...
-                </button>
-
-                <button class="thought" id="thought2">
-                    Why am I different?
-                </button>
-
-                <button class="thought" id="thought3">
-                    Maybe I need one too...
-                </button>
-
-                <!-- Hidden final decision -->
-                <div id="finalThought">
-                    I KNOW! I'LL MAKE MY OWN HOLE!
-                </div>
-
-                <!-- Continue to Panel 3 -->
-                <button class="comic-button" id="nextPanelBtn">
-                    WHAT COULD GO WRONG? →
-                </button>
-
-            </div>
-
-        </section>
+        </section>
 
 
 
+        <!-- PANEL 2: THE DONUT'S THOUGHTS -->
+        <section class="panel" id="panel2">
 
-        <!-- PANEL 3: DONUT POV -->
-        <section class="panel" id="panel3">
+            <div class="thinking-scene">
 
-            <div class="pov-scene">
 
-                <!-- First image: cutter UP -->
-                <img src="assets/dough2.PNG" id="doughImage" alt="Cutter above the dough">
+                <!-- Worried donut -->
+                <div class="donut-container">
 
-                <!-- Invisible button covering the screen -->
-                <button id="povClickArea" aria-label="Press the cutter"></button>
+                    <img src="assets/donut2.png" id="thinkingDonut" alt="Worried jelly donut">
 
-                <!-- Instructions -->
-                <p id="doughInstruction">
-                    CLICK TO LOWER THE CUTTER
-                </p>
+                    <img src="assets/panel3.png" id="handCutter" alt="Hole cutter">
 
-                <!-- Message after cutting -->
-                <div id="doughSuccess">
-                    See? That wasn't so hard!
-                </div>
+                </div>
 
-                <!-- Continue -->
-                <button class="comic-button" id="toPanel4">
-                    NOW TRY IT FOR REAL →
-                </button>
+                <!-- Instructions -->
+                <p id="thinkingInstruction">
+                    Click on her thoughts...
+                </p>
 
-            </div>
+                <!-- Interactive thought bubbles -->
+                <button class="thought" id="thought1">
+                    Everyone else has a hole...
+                </button>
 
-        </section>
+                <button class="thought" id="thought2">
+                    Why am I different?
+                </button>
+
+                <button class="thought" id="thought3">
+                    Maybe I need one too...
+                </button>
+
+                <!-- Hidden final decision -->
+                <div id="finalThought">
+                    I KNOW! I'LL MAKE MY OWN HOLE!
+                </div>
+
+                <!-- Continue to Panel 3 -->
+                <button class="comic-button" id="nextPanelBtn">
+                    WHAT COULD GO WRONG? →
+                </button>
+
+            </div>
+
+        </section>
 
 
 
 
-        <!-- PANEL 4: THE MISTAKE -->
-        <section class="panel" id="panel4">
-            <div class="panel4-scene">
+        <!-- PANEL 3: DONUT POV -->
+        <section class="panel" id="panel3">
 
-                <img src="assets/firstcut.png" id="cuttingDonut" alt="Donut holding a cutter">
+            <div class="pov-scene">
 
-                <p id="cutInstruction">CLICK THE DONUT TO PUSH THE CUTTER!</p>
+                <!-- First image: cutter UP -->
+                <img src="assets/dough2.PNG" id="doughImage" alt="Cutter above the dough">
 
-                <img src="assets/splash.png" id="jamSplash" alt="Jam splashing onto the screen">
+                <!-- Invisible button covering the screen -->
+                <button id="povClickArea" aria-label="Press the cutter"></button>
 
-            </div>
-        </section>
+                <!-- Instructions -->
+                <p id="doughInstruction">
+                    CLICK TO LOWER THE CUTTER
+                </p>
 
-        <!-- PANEL 5: THE AFTERMATH -->
-        <section class="panel" id="panel5">
-            <div class="panel-content">
+                <!-- Message after cutting -->
+                <div id="doughSuccess">
+                    See? That wasn't so hard!
+                </div>
 
-                <div id="meltingDonutContainer">
-                    <!-- Jam images behind the donut -->
-                    <img src="assets/initialjam.png" alt="The initial jam splash" id="initialJam">
-                    <img src="assets/finaljam.png" alt="The final jam shape" id="finalJam5">
+                <!-- Continue -->
+                <button class="comic-button" id="toPanel4">
+                    NOW TRY IT FOR REAL →
+                </button>
 
-                    <!-- Donut images in front of the jam -->
-                    <img src="assets/donut5.png" alt="The donut beginning to melt" id="donut5">
-                    <img src="assets/donut6.png" alt="The fully melted donut" id="donut5Melted">
-                </div>
+            </div>
 
-                <p id="message5">
-                    Maybe this wasn't a good idea after all...
-                </p>
+        </section>
 
-                <button class="comic-button" id="checkBtn">
-                    ARE YOU OKAY?
-                </button>
 
-            </div>
-        </section>
 
-        <!-- PANEL 6: THE ENDING -->
-        <section class="panel" id="panel6">
-            <div class="panel-content">
 
-                <div id="finalDonutContainer">
-                    <img src="assets/finaljam.png" alt="The final jam scene" id="finalJam">
-                    <img src="assets/donut6.png" alt="The donut's final moment" id="finalDonut">
-                </div>
+        <!-- PANEL 4: THE MISTAKE -->
+        <section class="panel" id="panel4">
+            <div class="panel4-scene">
 
-                <p id="endingText">
-                    She finally fit the mold… but at what cost?
-                </p>
+                <img src="assets/firstcut.png" id="cuttingDonut" alt="Donut holding a cutter">
 
-<button class="comic-button" id="restartBtn">
-                    READ AGAIN ↻
-                </button>
-                
-            </div>
-        </section>
+                <p id="cutInstruction">CLICK THE DONUT TO PUSH THE CUTTER!</p>
 
-    </main>
+                <img src="assets/splash.png" id="jamSplash" alt="Jam splashing onto the screen">
 
-    <!-- FULL-SCREEN EXPLOSION -->
-    <div id="explosionOverlay">
-        <div class="explosion-content">
-            <h2>BOOOOOOM!</h2>
-            <img src="assets/panel4.png" alt="Exploding jam">
-        </div>
-    </div>
+            </div>
+        </section>
 
-    <!-- JAVASCRIPT LIBRARIES -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+        <!-- PANEL 5: THE AFTERMATH -->
+        <section class="panel" id="panel5">
+            <div class="panel-content">
+
+                <div id="meltingDonutContainer">
+                    <!-- Jam images behind the donut -->
+                    <img src="assets/initialjam.png" alt="The initial jam splash" id="initialJam">
+                    <img src="assets/finaljam.png" alt="The final jam shape" id="finalJam5">
+
+                    <!-- Donut images in front of the jam -->
+                    <img src="assets/donut5.png" alt="The donut beginning to melt" id="donut5">
+                    <img src="assets/donut6.png" alt="The fully melted donut" id="donut5Melted">
+                </div>
+
+                <p id="message5">
+                    Maybe this wasn't a good idea after all...
+                </p>
+
+                <button class="comic-button" id="checkBtn">
+                    ARE YOU OKAY?
+                </button>
+
+            </div>
+        </section>
+
+        <!-- PANEL 6: THE ENDING -->
+        <section class="panel" id="panel6">
+            <div class="panel-content">
+
+                <div id="finalDonutContainer">
+                    <img src="assets/finaljam.png" alt="The final jam scene" id="finalJam">
+                    <img src="assets/donut6.png" alt="The donut's final moment" id="finalDonut">
+                </div>
+
+                <p id="endingText">
+                    She finally fit the mold… but at what cost?
+                </p>
+
+                <button class="comic-button" id="restartBtn">
+                    TRY AGAIN? ↻
+                </button>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FULL-SCREEN EXPLOSION -->
+    <div id="explosionOverlay">
+        <div class="explosion-content">
+            <h2>BOOOOOOM!</h2>
+            <img src="assets/panel4.png" alt="Exploding jam">
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LIBRARIES -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
