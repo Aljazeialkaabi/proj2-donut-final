@@ -422,14 +422,8 @@ document.querySelector("#checkBtn")?.addEventListener("click", () => {
 
 });
 
-
 // PANEL 6: RESTART STORY
-
 document.querySelector("#restartBtn")?.addEventListener("click", () => {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
+    location.reload();
+});
 });
